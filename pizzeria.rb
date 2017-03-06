@@ -22,9 +22,9 @@ end
 
 #Take the order
 def take_order
-  puts "Enter the number of the pizza as displayed on the menu: "
+  print "Enter the number of the pizza as displayed on the menu: "
   number = gets.chomp
-  print = "How many pizzas would you like to order?"
+  print "How many pizzas would you like to order?"
   count = gets.chomp.to_i
   return number, count
 end
@@ -49,4 +49,23 @@ def total_amount(menu_nr, pizza_cnt)
   end
 
   return amount
+end
+
+# Call the method to initialize the pizzas
+initialize_pizzas
+puts "Welcome to Mario's Pizzeria!"
+# The method customer_name returns a name, store it in the `name` variable
+name = customer_name
+puts "Hi #{name.capitalize}, which pizza would you like to order?"
+show_menu
+# The take_order method returns both the menu number and the amount of pizzas
+menu_number, pizza_count = take_order
+
+# Calculate the total amount based on the menu number and the amount of pizzas
+total = total_amount menu_number, pizza_count
+if total > 0 then
+  puts "Thank you for your order. The total amount for your order is: #{total} Euro"
+  puts "Your order will be delivered in 20 minutes."
+else
+  puts "Oops, something went wrong. Please try again."
 end
